@@ -1,0 +1,9 @@
+- [Introduction](main.md)
+- [Installation](main.md#Installation)
+    - [Usage](main.md#Usage)
+    - [Caching](main.md#A word about caching)
+    - [Session Management](main.md#Enabling session management)
+- Appendices
+    - [Twig](main.md#Use with Twig)
+    - [Stack middlewares](main.md#Use with Stack Middlewares)
+    - [Advanced Usage](main.md#Advanced Usage)
