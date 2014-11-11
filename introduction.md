@@ -37,6 +37,8 @@ The recommended way to install Nice is through [Composer](http://getcomposer.org
 php composer.phar require tyler-sommer/nice:dev-master nikic/fast-route:dev-master
 ```
 
+This command will download and install Nice into the current directory.
+
 
 Usage
 -----
