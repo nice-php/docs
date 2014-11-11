@@ -86,6 +86,8 @@ Visit `index.php/hello/Tyler` and you will see "Hello, Tyler!".
 
 #### A word about caching
 
+> **Warning:** Caching is subject to change before 1.0 stable is released.
+
 Passing `false` as the third parameter of `Nice\Application` constructor will disable
 caching. The cache directory will be null if caching is disabled, which can be checked
 in your own code.
@@ -105,7 +107,6 @@ assert($app->getCacheDir() === null);
 // or by calling isCacheEnabled
 assert($app->isCacheEnabled() === false);
 ```
-
 
 #### Enabling session management
 
