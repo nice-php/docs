@@ -1,9 +1,11 @@
 - [Introduction](introduction.md)
-- [Installation](introduction.md#installation)
-    - [Usage](introduction.md#usage)
-    - [Caching](introduction.md#a-word-about-caching)
-    - [Session Management](introduction.md#enabling-session-management)
-- Appendices
-    - [Twig](introduction.md#use-with-twig)
-    - [Stack middlewares](introduction.md#use-with-stack-middlewares)
-    - [Advanced Usage](introduction.md#advanced-usage)
+- Getting Started
+    - [Installation](getting-started/installation.md)
+    - [Your First App](getting-started/your-first-app.md)
+    - [HttpKernel Middlewares](getting-started/middlewares.md)
+- Extensions
+    - [Caching](extensions/caching.md)
+    - [Security](extensions/security.md)
+    - [Sessions](extensions/sessions.md)
+    - [Twig](extensions/twig.md)
+- [Advanced Usage](advanced/introduction.md)
