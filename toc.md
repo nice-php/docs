@@ -8,4 +8,8 @@
     - [Security](extensions/security.md)
     - [Sessions](extensions/sessions.md)
     - [Twig](extensions/twig.md)
+    - [Doctrine](extensions/doctrine.md)
+        -[DBAL](extensions/doctrine.md#configuring-doctrine-dbal)
+        -[ORM](extensions/doctrine.md#configuring-doctrine-orm)
+        -[ODM](extensions/doctrine.md#configuring-doctrine-odm)
 - [Advanced Usage](advanced/introduction.md)
