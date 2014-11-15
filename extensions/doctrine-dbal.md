@@ -68,15 +68,3 @@ Visiting your site at `index.php/messages` should result in the following JSON o
 ```json
 [{"id":"1","message":"This is a message!"}]
 ```
-
-
-Configuring Doctrine ORM
-========================
-
-The Doctrine ORM extension is currently under development.
-
-
-Configuring Doctrine ODM
-========================
-
-The Doctrine ODM extension is currently under development.
