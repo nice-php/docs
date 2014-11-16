@@ -2,11 +2,12 @@
 - Getting Started
     - [Installation](getting-started/installation.md)
     - [Your First App](getting-started/your-first-app.md)
+    - [Caching](getting-started/caching.md)
     - [HttpKernel Middlewares](getting-started/middlewares.md)
 - Extensions
-    - [Caching](extensions/caching.md)
-    - [Security](extensions/security.md)
     - [Sessions](extensions/sessions.md)
+    - [Security](extensions/security.md)
+    - [Cache](extensions/cache.md)
     - [Twig](extensions/twig.md)
     - [Doctrine DBAL](extensions/doctrine-dbal.md)
     - [Doctrine ORM](extensions/doctrine-orm.md)
