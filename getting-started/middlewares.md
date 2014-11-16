@@ -48,4 +48,4 @@ Stack\run($app);
 Custom Middlewares
 ------------------
 
-Coming soon.
+Check out the [Stack](http://stackphp.com/) website for more information on custom middlewares.
