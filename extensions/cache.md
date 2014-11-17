@@ -26,7 +26,7 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool
 
     ```
-    php composer.phar require doctrine/dbal:~2.4
+    composer require doctrine/dbal:~2.4
     ```
 
 With Doctrine Cache is installed, the next step is registering the `CacheExtension` with your Nice Application.
@@ -52,3 +52,7 @@ With the above configuration, Nice will create the following service:
 
 * `cache.default` is an instance of 
 [Doctrine\Common\Cache](http://www.doctrine-project.org/api/common/2.4/class-Doctrine.Common.Cache.Cache.html).
+
+
+Caching Generated Data
+----------------------

@@ -1,16 +1,35 @@
 Use with Twig
 =============
 
-Nice comes with built-in [Twig](http://twig.sensiolabs.org) support. All that's necessary is 
-some simple configuration.
+Nice can easily support the [Twig](http://twig.sensiolabs.org) templating engine. All that's necessary is 
+the installation of the Nice Twig extension and some simple configuration.
 
-First, add Twig to your project:
+First, add the Nice Twig extension to your project. You can do this by updating your `composer.json` or
+running `composer require` at the command line.
 
-```bash
-php composer.phar require twig/twig:dev-master
-```
+*   Example `composer.json`:
 
-Then, in your front controller:
+    ```json
+    {
+        "require": {
+            "nice/framework": "dev-master",
+            "nice/twig": "dev-master",
+            "nikic/fast-route": "dev-master"
+        }
+    }
+    ```
+    
+    The run `composer update` at the command line.
+    
+
+*   Using the `composer` command line tool
+
+    ```
+    composer require nice/twig:dev-master
+    ```
+
+
+With the extension installed, all that's needed is some modifications to your front controller:
 
 ```php
 <?php
@@ -42,3 +61,10 @@ $app->set('routes', function (RouteCollector $r) {
 // Run the application
 $app->run();
 ```
+
+Once the TwigExtension is registered with your Nice application, the following services will be available:
+
+* `twig` is an instance of `Twig_Environment`. Use this service to render templates.
+
+The parameter `twig.template_dir` is also made available. Its value will be whatever you've passed into the 
+constructor of your `TwigExtension` instance.

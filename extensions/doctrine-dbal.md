@@ -1,17 +1,34 @@
 Configuring Doctrine DBAL
 =========================
 
-Nice includes built-in support for Doctrine DBAL.
+Nice features a Doctrine DBAL bridge that integrates the two, exposing a few useful services. Usage is simple with
+only the installation of a package and some configuration.
 
+First, add the Nice Doctrine DBAL extension to your project. You can do this by updating your `composer.json` or
+running `composer require` at the command line.
 
-First, install the DBAL into your project:
+*   Example `composer.json`:
 
-```
-php composer.phar require doctrine/dbal:~2.4
-```
+    ```json
+    {
+        "require": {
+            "nice/framework": "dev-master",
+            "nice/doctrine-dbal": "dev-master",
+            "nikic/fast-route": "dev-master"
+        }
+    }
+    ```
+    
+    The run `composer update` at the command line.
+    
 
-This command will add Doctrine DBAL 2.4 to your project. Once it is installed, open your `web/index.php` and 
-add the following:
+*   Using the `composer` command line tool
+
+    ```
+    composer require nice/doctrine-dbal:dev-master
+    ```
+
+Once Doctrine DBAL is installed, open your front controller (usually `web/index.php`) and add the following:
 
 ```php
 use Nice\Extension\DoctrineDbalExtension;
