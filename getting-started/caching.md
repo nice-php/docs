@@ -1,12 +1,9 @@
-Configuring Logging
-===================
+Configuring the Cache
+=====================
 
-Nice comes with built-in Monolog integration.
-
-> **Note:** For more information about installing and configuring the Log extension, see 
-[relevant documentation](../extensions/log.md).
-
-A Nice application always exposes its configured log directory. You can check this in your application:
+Passing `false` as the third parameter of `Nice\Application` constructor will disable
+caching. The cache directory will be null if caching is disabled, which can be checked
+in your own code.
 
 ```php
 <?php
@@ -15,16 +12,20 @@ use Nice\Application;
 
 // ...
 
-$app = new Application('prod', true);
+$app = new Application('prod', true, false);
 
-// The configured log directory is always available
-echo $app->getLogDir();
+// Caching is disabled; the Cache Directory is null.
+assert($app->getCacheDir() === null);
+
+// or by calling isCacheEnabled
+assert($app->isCacheEnabled() === false);
 ```
 
 Additionally, the following parameters are available:
 
-* `app.log_dir` will be the path to the log directory.
+* `app.cache` will be `true` if caching should be enabled, `false` otherwise
+* `app.cache_dir` will be the path to the cache directory, or `null` if caching should be disabled.
 
 
-> **Tip:** For further information on configuring logging, see the
-[Log extension](../extensions/log.md) documentation.
+> **Tip:** For further information on actually using the cache, see the 
+[Cache extension](../extensions/cache.md) documentation.
