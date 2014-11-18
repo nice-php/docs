@@ -11,8 +11,9 @@ Nice is a simple microframework for PHP 5.4 and later. Nice integrates nikic's
 the [Symfony2 HttpKernel](https://github.com/symfony/HttpKernel) and 
 [Dependency Injection](https://github.com/symfony/DependencyInjection) components.
 
-Nice comes with built-in [session management](extensions/session.md), 
-[simple authentication](extensions/security.md), and [Twig integration](extensions/twig.md).
+Nice comes with built-in [session management](extensions/sessions.md), [simple authentication](extensions/security.md),
+and logging utilizing [Monolog](extensions/log.md).
+[Twig](extensions/twig.md) and [Doctrine DBAL](extensions/doctrine-dbal.md) integration is also available.
 
 
 ```php
