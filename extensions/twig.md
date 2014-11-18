@@ -12,9 +12,8 @@ running `composer require` at the command line.
     ```json
     {
         "require": {
-            "nice/framework": "dev-master",
-            "nice/twig": "dev-master",
-            "nikic/fast-route": "dev-master"
+            "nice/framework": "1.0.x-dev",
+            "nice/twig": "1.0.x-dev"
         }
     }
     ```
