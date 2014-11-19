@@ -71,3 +71,30 @@ $app->set('security.authenticator', function (Request $request) {
     return false;
 });
 ```
+
+
+Checking if a user has failed to login
+--------------------------------------
+
+By default, an event subscriber adds an indicator to the session when a user fails to login. This can be used in
+your own code to display an error to the user stating that their username or password is incorrect.
+
+A contrived example of this usage:
+
+```php
+use Nice\Security\AuthenticationFailureSubscriber;
+
+$app = new Application();
+
+// ...
+
+$app->set('routes', function (RouteCollector $r) {
+    $r->addRoute('GET', '/login', function (Request $request) {
+        if ($request->getSession->has(AuthenticationFailureSubscriber::AUTHENTICATION_ERROR)) {
+            return new Response("Sorry, you failed to login once. That's all we can allow.");
+        }
+        
+        // ... carry on returning the regular login page
+    });
+});
+```
