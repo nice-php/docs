@@ -90,7 +90,9 @@ $app = new Application();
 
 $app->set('routes', function (RouteCollector $r) {
     $r->addRoute('GET', '/login', function (Request $request) {
-        if ($request->getSession->has(AuthenticationFailureSubscriber::AUTHENTICATION_ERROR)) {
+        if (
+            $request->getSession()->has(AuthenticationFailureSubscriber::AUTHENTICATION_ERROR)
+        ) {
             return new Response("Sorry, you failed to login once. That's all we can allow.");
         }
         
