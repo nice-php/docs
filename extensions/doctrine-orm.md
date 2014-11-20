@@ -27,7 +27,7 @@ running `composer require` at the command line.
     composer require nice/doctrine-orm:dev-master
     ```
 
-Once Doctrine ORM and the Nice extension is installed, open your front controller (usually `web/index.php`) and 
+Once Doctrine ORM and the Nice extension are installed, open your front controller (usually `web/index.php`) and 
 add the following:
 
 ```php

@@ -14,4 +14,5 @@
     - [Doctrine DBAL](extensions/doctrine-dbal.md)
     - [Doctrine ORM](extensions/doctrine-orm.md)
     - [Doctrine ODM](extensions/doctrine-odm.md)
+    - [Doctrine Key-Value](extensions/doctrine-key-value.md)
 - [Advanced Usage](advanced/introduction.md)
