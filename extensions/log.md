@@ -58,3 +58,37 @@ specified log file on any messages with level DEBUG or higher.
 
 > **Tip:** Check out [Monolog documentation](https://github.com/Seldaek/monolog#log-levels) for more information on
 log levels and handlers.
+
+
+Logger usage example
+--------------------
+
+```php
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Nice\Application;
+use Nice\Router\RouteCollector;
+use Nice\Extension\LogExtension;
+
+$app = new Application();
+$app->appendExtension(new LogExtension(array(
+    'channels' => array(
+        'default' => array(
+            'handler' => 'stream',
+            'level' => 100, // Debug
+            'options' => array(
+                'file' => '%app.log_dir%/main.log'
+            )
+        )
+    )
+)));
+
+// Configure your routes
+$app->set('routes', function (RouteCollector $r) {
+    $r->addNamedRoute('home', 'GET', '/', function (Application $app, Request $request) {
+        $app->get('logger.default')->debug('User hit the "home" action!');
+
+        return new Response('Hello, world');
+    });
+});
+```
