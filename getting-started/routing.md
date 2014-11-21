@@ -23,7 +23,7 @@ $app->set('routes', function (RouteCollector $r) {
         return new Response('Hello, world. <a href="' . $url . '">Hello, Tyler.</a>');
     });
     
-    $r->addNamedRoute('hello', 'GET', '/hello/{name}', function (Application $app, Request $request, $name) {
+    $r->addNamedRoute('hello', 'GET', '/hello/{name}', function (Application $app, $name) {
         return new Response('Hello, ' . $name . '!');
     });
 });
@@ -36,7 +36,7 @@ You can also generate absolute URLs by passing `true` as the third parameter.
 
 The full `generateUrl` method signature is:
 
-```
+```php
 interface UrlGeneratorInterface
 {
     /**
