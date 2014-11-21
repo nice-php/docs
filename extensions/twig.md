@@ -67,3 +67,18 @@ Once the TwigExtension is registered with your Nice application, the following s
 
 The parameter `twig.template_dir` is also made available. Its value will be whatever you've passed into the 
 constructor of your `TwigExtension` instance.
+
+
+Generating URLs
+---------------
+
+The Nice Twig extension includes integration with Nice's router, exposing the following useful functions:
+
+*   `path` Generates a URL. It takes a name and optionally, an array of parameters.
+
+    For example:
+    ```twig
+    <a href="{{ path('user_edit', { id: 1 }) }}">Edit User</a>
+    ```
+    
+*   `url` Generates an absolute URL. It takes a name and optionally, an array of parameters.

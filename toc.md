@@ -2,6 +2,7 @@
 - Getting Started
     - [Installation](getting-started/installation.md)
     - [Your First App](getting-started/your-first-app.md)
+    - [Routing](getting-started/routing.md)
     - [Caching](getting-started/caching.md)
     - [Logging](getting-started/logging.md)
     - [Middlewares](getting-started/middlewares.md)

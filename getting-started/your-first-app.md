@@ -25,12 +25,12 @@ $app = new Application();
 // Configure your routes
 $app->set('routes', function (RouteCollector $r) {
     $r->addRoute('GET', '/', function (Application $app, Request $request) {
-            return new Response('Hello, world');
-        });
+        return new Response('Hello, world');
+    });
 
     $r->addRoute('GET', '/hello/{name}', function (Application $app, Request $request, $name) {
-            return new Response('Hello, ' . $name . '!');
-        });
+        return new Response('Hello, ' . $name . '!');
+    });
 });
 
 // Run the application
