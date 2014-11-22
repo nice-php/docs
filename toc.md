@@ -17,3 +17,6 @@
     - [Doctrine ODM](extensions/doctrine-odm.md)
     - [Doctrine Key-Value](extensions/doctrine-key-value.md)
 - [Advanced Usage](advanced/introduction.md)
+    - [Custom Extensions](advanced/custom-extensions.md)
+    - [Subclass Application](advanced/subclass-application.md)
+    - [Custom Route Collector](advanced/custom-route-collector.md)
