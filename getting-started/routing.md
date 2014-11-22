@@ -34,7 +34,7 @@ example of using the URL generator to generate a route for the route named `hell
 
 You can also generate absolute URLs by passing `true` as the third parameter.
 
-The full `generateUrl` method signature is:
+The full `generate` method signature is:
 
 ```php
 interface UrlGeneratorInterface
