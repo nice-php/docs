@@ -70,7 +70,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 $app->set('routes', function (RouteCollector $r) {
     // ...
     
-    $r->addRoute('GET', '/messages', function (Application $app, Request $request) {
+    $r->map('/messages', null, function (Application $app, Request $request) {
         $conn = $app->get('doctrine.dbal.database_connection');
         $results = $conn->executeQuery("SELECT * FROM messages")->fetchAll();
 

@@ -85,7 +85,7 @@ $app->appendExtension(new LogExtension(array(
 
 // Configure your routes
 $app->set('routes', function (RouteCollector $r) {
-    $r->addNamedRoute('home', 'GET', '/', function (Application $app, Request $request) {
+    $r->map('/', 'home', function (Application $app, Request $request) {
         $app->get('logger.default')->debug('User hit the "home" action!');
 
         return new Response('Hello, world');

@@ -81,14 +81,14 @@ $app = new Application();
 
 // Configure your routes
 $app->set('routes', function (RouteCollector $r) {
-    $r->addRoute('GET', '/hello/{name}', function (Application $app, Request $request, $name) {
+    $r->map('/hello/{name}', null, function (Application $app, Request $request, $name) {
         $cache = $app->get('cache.default');
         $cache->save('last-hello', $name);
 
         return new Response('Hello, ' . $name . '!');
     });
 
-    $r->addRoute('GET', '/last-hello', function (Application $app) {
+    $r->map('/last-hello', null, function (Application $app) {
         $cache = $app->get('cache.default');
         $name = $cache->fetch('last-hello');
 

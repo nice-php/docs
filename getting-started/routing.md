@@ -3,12 +3,12 @@ Routing
 
 Nice uses FastRoute as a router, but also provides URL generation using named routes.
 
-By default, routes are un-named. You can add named routes with `addNamedRoute` method.
+Using the `map` method on `RouteCollector`, you may choose to pass in a name as the second parameter. You can also 
+pass in `null` to leave the route un-named, as we saw in the [original example](your-first-app.md).
 
 Below is a slightly different example of the introduction application.
 
 ```php
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Nice\Application;
 use Nice\Router\RouteCollector;
@@ -17,19 +17,19 @@ $app = new Application();
 
 // Configure your routes
 $app->set('routes', function (RouteCollector $r) {
-    $r->addNamedRoute('home', 'GET', '/', function (Application $app) {
+    $r->map('/', 'home', function (Application $app) {
         $url = $app->get('router.url_generator')->generate('hello', array('name' => 'Tyler'));
         
         return new Response('Hello, world. <a href="' . $url . '">Hello, Tyler.</a>');
     });
     
-    $r->addNamedRoute('hello', 'GET', '/hello/{name}', function (Application $app, $name) {
+    $r->map('/hello/{name}', 'hello', function (Application $app, $name) {
         return new Response('Hello, ' . $name . '!');
     });
 });
 ```
 
-We used `addNamedRoute` and passed the name of the route as the first parameter. Inside the first action is an
+We used `map` and passed the name of the route as the second parameter. Inside the first action is an
 example of using the URL generator to generate a route for the route named `hello`.
 
 You can also generate absolute URLs by passing `true` as the third parameter.
@@ -50,4 +50,20 @@ interface UrlGeneratorInterface
      */
     public function generate($name, array $parameters = array(), $absolute = false);
 }
+```
+
+Specifying HTTP method
+----------------------
+
+The fourth parameter in `map` defines which HTTP methods the action should respond to. It takes either a string or
+an array of strings. By default, routes will listen to GET method requests only.
+
+For example, an action that listens to both GET and POST would pass: `[ 'GET', 'POST' ]` as the value:
+
+```php
+$app->set('routes', function (RouteCollector $r) {
+    $r->map('/user/{id}/edit', 'user_edit', function (Application $app, $id) {
+        // ... do something useful
+    }, [ 'GET', 'POST' ]);
+});
 ```

@@ -31,7 +31,7 @@ the user to login with.
 $app->set('routes', function (RouteCollector $r) {
     // ...
 
-    $r->addRoute('GET', '/login', function (Application $app, Request $request) {
+    $r->map('/login', 'login', function (Application $app, Request $request) {
         return new Response(
             '<form action="login_check" method="post">
                 <input type="text" name="username" placeholder="Username" />
@@ -89,7 +89,7 @@ $app = new Application();
 // ...
 
 $app->set('routes', function (RouteCollector $r) {
-    $r->addRoute('GET', '/login', function (Request $request) {
+    $r->map('/login', 'login', function (Request $request) {
         if (
             $request->getSession()->has(AuthenticationFailureSubscriber::AUTHENTICATION_ERROR)
         ) {

@@ -38,7 +38,7 @@ $app = new Application();
 $app->appendExtension(new SessionExtension());
 
 $app->set('routes', function (RouteCollector $r) {
-    $r->addRoute('GET', '/last-visit', function (Request $request) {
+    $r->map('/last-visit', null, function (Request $request) {
         $session = $request->getSession();
         
         $lastVisit = $session->get('last-visited', 'Never');

@@ -47,14 +47,14 @@ $app = new Application();
 $app->appendExtension(new TwigExtension(__DIR__ . '/../views'));
 
 $app->set('routes', function (RouteCollector $r) {
-    $r->addRoute('GET', '/hello/{name}', function (Application $app, Request $request, $name) {
-            // Use the Twig service to render templates
-            $rendered = $app->get('twig')->render('index.html.twig', array(
-                    'name' => $name
-                ));
-            
-            return new Response($rendered);
-        });
+    $r->map('/hello/{name}', null, function (Application $app, Request $request, $name) {
+        // Use the Twig service to render templates
+        $rendered = $app->get('twig')->render('index.html.twig', array(
+            'name' => $name
+        ));
+        
+        return new Response($rendered);
+    });
 });
 
 // Run the application

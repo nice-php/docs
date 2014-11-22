@@ -10,7 +10,6 @@ In your `web` directory, create `index.php` and add:
 ```php
 <?php
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Nice\Application;
 use Nice\Router\RouteCollector;
@@ -24,11 +23,11 @@ $app = new Application();
 
 // Configure your routes
 $app->set('routes', function (RouteCollector $r) {
-    $r->addRoute('GET', '/', function (Application $app, Request $request) {
+    $r->map('/', null, function () {
         return new Response('Hello, world');
     });
 
-    $r->addRoute('GET', '/hello/{name}', function (Application $app, Request $request, $name) {
+    $r->map('/hello/{name}', null, function ($name) {
         return new Response('Hello, ' . $name . '!');
     });
 });
