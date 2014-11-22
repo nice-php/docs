@@ -4,21 +4,18 @@ Caching Generated Data
 Sometimes it can be worthwhile to cache generated data to be used across requests. There are two main methods of
 caching data, each suited to a specific need.
 
-*   `ConfigCache` caches static data in files to be included by PHP at runtime.
-
-    These files are generated at time of deployment and should not change during their lifetime. Examples of
-    suitable applications here is cached routing and URL generator data.
-    
 *   `Doctrine Cache` is suitable for highly dynamic data.
 
     Cache times should be relatively small to ensure that data remains fresh. Examples of this data include
     database results, entity hydration results, and fully rendered content that is ready to serve.
 
+*   `ConfigCache` caches static data in files to be included by PHP at runtime.
 
-### ConfigCache
-
-Coming soon.
-
+    These files are generated at time of deployment and should not change during their lifetime. Examples of
+    suitable applications here is cached routing and URL generator data.
+    
+    See the [advanced section](../advanced/configcache.md) for more information on using `ConfigCache`.
+    
 
 ### Doctrine Cache
 

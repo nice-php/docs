@@ -20,3 +20,4 @@
     - [Custom Extensions](advanced/custom-extensions.md)
     - [Subclass Application](advanced/subclass-application.md)
     - [Custom Route Collector](advanced/custom-route-collector.md)
+    - [ConfigCache](advanced/config-cache.md)

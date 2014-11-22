@@ -11,4 +11,6 @@ that can handle most scenarios, but offers complete customization and control.
 *   [Subclass `Nice\Application`](subclass-application.md) and override the `registerDefaultExtensions` 
     methods to keep your front controller clean of configuration.
 
-*   [Create a custom route collector](custom-route-collector.md) to can leverage full router caching.
+*   [Create a custom route collector](custom-route-collector.md) to leverage full router caching.
+
+*   [Utilize `ConfigCache`](config-cache.md) to cache generated data at time of deployment.
