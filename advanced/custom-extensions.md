@@ -19,6 +19,8 @@ In this file, create a class called DemoExtension and subclass Symfony's DI Exte
 
 namespace Acme\Extension;
 
+use Symfony\Component\DependencyInjection\Extension\Extension;
+
 class DemoExtension extends Extension
 {
     /**
@@ -38,7 +40,7 @@ class DemoExtension extends Extension
 
 The `load` method receives a `ContainerBuilder` which is used to register custom services and add parameters.
 
->   Note: The `$configs` can be used to allow configuration of services. See 
+>   Note: The `$configs` array can be used to allow configuration of services. See 
     [this section](#creating-a-configuration-class) for more information.
 
 
