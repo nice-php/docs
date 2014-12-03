@@ -24,7 +24,7 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool
 
     ```
-    composer require nice/twig:dev-master
+    composer require nice/twig:1.0.x-dev
     ```
 
 

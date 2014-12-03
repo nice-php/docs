@@ -1,12 +1,36 @@
 Configuring the Security extension
 ==================================
 
-Nice comes with a built-in standalone security component that allows simple authentication.
+A standalone security component is available for Nice that allows simple authentication.
 
 > **Note:** The Security extension requires the Session extension. [See here](sessions.md) for information on 
 configuring the Session extension.
 
-To get started, first register the Session and Security extensions with your Nice application.
+To get started, add the Nice Security extension to your project. You can do this by updating your `composer.json` or
+running `composer require` at the command line.
+
+*   Example `composer.json`:
+
+    ```json
+    {
+        "require": {
+            "nice/framework": "1.0.x-dev",
+            "nice/security": "1.0.x-dev"
+        }
+    }
+    ```
+    
+    The run `composer update` at the command line.
+    
+
+*   Using the `composer` command line tool
+
+    ```
+    composer require nice/security:1.0.x-dev
+    ```
+
+
+With the extension installed, register the Session and Security extensions with your Nice application.
 
 ```php
 $app = new Application();
