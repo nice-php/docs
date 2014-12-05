@@ -14,17 +14,16 @@ caching data, each suited to a specific need.
     These files are generated at time of deployment and should not change during their lifetime. Examples of
     suitable applications here is cached routing and URL generator data.
     
-    See the [advanced section](../advanced/configcache.md) for more information on using `ConfigCache`.
+> Note: See the [advanced section](../advanced/config-cache.md) for more information on using `ConfigCache`.
     
 
 ### Doctrine Cache
 
-Nice comes with built-in integration with [Doctrine's Cache component](https://github.com/doctrine/cache). This allows
+Nice supports [Doctrine's Cache component](https://github.com/doctrine/cache) through an extension. This allows
 for easy storage and retrieval of generated information, using any number of cache backends.
 
-
-The first step is requiring Doctrine Cache in your project. You can do this by updating your `composer.json` or
-running `composer require` at the command line.
+The first step is requiring the Nice Doctrine Cache bridge in your project. You can do this by updating your 
+`composer.json` or running `composer require` at the command line.
 
 *   Example `composer.json`:
 
@@ -32,7 +31,7 @@ running `composer require` at the command line.
     {
         "require": {
             "nice/framework": "1.0.x-dev",
-            "doctrine/cache": "~2.3"
+            "nice/doctrine-cache": "1.0.x-dev"
         }
     }
     ```
@@ -43,7 +42,7 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool
 
     ```
-    composer require doctrine/dbal:~2.4
+    composer require nice/doctrine-cache:1.0.x-dev
     ```
 
 With Doctrine Cache is installed, the next step is registering the `CacheExtension` with your Nice Application.
