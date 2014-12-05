@@ -20,7 +20,7 @@ running `composer require` at the command line.
     }
     ```
     
-    The run `composer update` at the command line.
+    Then run `composer update` at the command line.
     
 
 *   Using the `composer` command line tool

@@ -18,13 +18,13 @@ running `composer require` at the command line.
     }
     ```
     
-    The run `composer update` at the command line.
+    Then run `composer update` at the command line.
     
 
 *   Using the `composer` command line tool
 
     ```
-    composer require nice/doctrine-orm:dev-master
+    composer require nice/doctrine-orm:1.0.x-dev
     ```
 
 Once Doctrine ORM and the Nice extension are installed, open your front controller (usually `web/index.php`) and 
