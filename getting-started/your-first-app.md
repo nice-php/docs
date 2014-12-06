@@ -40,11 +40,37 @@ Visit `index.php` in your browser and you'll see the message "Hello, world".
 
 Visit `index.php/hello/Tyler` and you will see "Hello, Tyler!".
 
+>   Tip: Your controller actions' parameters are automatically resolved. Named parameters in your routes can be 
+    passed into your actions by defining a parameter with the same name. Additionally, `Request $request` and 
+    `Application $app` can be automatically passed into your actions.
+    
+    ```php
+    $r->map('/foo', null, function (Request $request, Application $app) {
+        // Use $request or $app ...
+    });
+    ```
+    
+The full signature of RouteCollector's `map` method is:
+
+```php
+    /**
+     * Map a handler to the given methods and route
+     *
+     * @param string          $route    The route to match against
+     * @param string          $name     The name of the route
+     * @param string|callable $handler  The handler for the route
+     * @param array|string[]  $methods  The HTTP methods for this handler
+     */
+    public function map($route, $name, $handler, array $methods = array('GET'));
+```
+
+> Note: See the section on [Routing](routing.md) for more information on using named routes to generate URLs.
+
 
 Configuring Apache mod_rewrite
 ------------------------------
 
-Place the following in you `web/.htaccess` file to enable pretty URLs without `index.php`:
+If using Apache, place the following in `web/.htaccess` file to enable pretty URLs without `index.php`:
 
 ```
 <IfModule mod_rewrite.c>
