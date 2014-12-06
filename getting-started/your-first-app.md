@@ -44,11 +44,11 @@ Visit `index.php/hello/Tyler` and you will see "Hello, Tyler!".
     passed into your actions by defining a parameter with the same name. Additionally, `Request $request` and 
     `Application $app` can be automatically passed into your actions.
     
-    ```php
-    $r->map('/foo', null, function (Request $request, Application $app) {
-        // Use $request or $app ...
-    });
-    ```
+```php
+$r->map('/foo', null, function (Request $request, Application $app) {
+    // Use $request or $app ...
+});
+```
     
 The full signature of RouteCollector's `map` method is:
 
