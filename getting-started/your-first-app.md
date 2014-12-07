@@ -40,19 +40,21 @@ Visit `index.php` in your browser and you'll see the message "Hello, world".
 
 Visit `index.php/hello/Tyler` and you will see "Hello, Tyler!".
 
->   Tip: Your controller actions' parameters are automatically resolved. Named parameters in your routes can be 
+>   **Tip:** Your controller actions' parameters are automatically resolved. Named parameters in your routes can be 
     passed into your actions by defining a parameter with the same name. Additionally, `Request $request` and 
     `Application $app` can be automatically passed into your actions.
     
 ```php
-$r->map('/foo', null, function (Request $request, Application $app) {
-    // Use $request or $app ...
+$r->map('/foo/{bar}', null, function (Request $request, Application $app, $bar) {
+    // Use $request or $app or $bar ...
 });
 ```
     
 The full signature of RouteCollector's `map` method is:
 
 ```php
+interface RouteMapperInterface
+{
     /**
      * Map a handler to the given methods and route
      *
@@ -60,11 +62,13 @@ The full signature of RouteCollector's `map` method is:
      * @param string          $name     The name of the route
      * @param string|callable $handler  The handler for the route
      * @param array|string[]  $methods  The HTTP methods for this handler
+     * @return void
      */
     public function map($route, $name, $handler, array $methods = array('GET'));
+}
 ```
 
-> Note: See the section on [Routing](routing.md) for more information on using named routes to generate URLs.
+> **Note:** See the section on [Routing](routing.md) for more information on using named routes to generate URLs.
 
 
 Configuring Apache mod_rewrite
