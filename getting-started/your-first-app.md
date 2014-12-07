@@ -3,7 +3,7 @@ Building Your First Nice App
 
 In your project root, create three directories: `cache`, `logs`, `web`. 
 
-> `cache` and `logs` must be writable by your webserver
+> **Notice:** `cache` and `logs` must be writable by your webserver
 
 In your `web` directory, create `index.php` and add:
 
