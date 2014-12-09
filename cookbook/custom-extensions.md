@@ -3,12 +3,15 @@ Custom Dependency Injection Extensions
 
 The Symfony DependencyInjection component is very powerful, if not a little bit verbose. 
 Nice allows the integration of custom DI extensions, which allow you to leverage the full power
-of the Symfony ServiceContainer in your application.
+of the Symfony service container in your application.
+
+Custom Extensions allow you to register new services with the service container and override
+built-in services with your own implementations.
 
 Creating an Extension
 ---------------------
 
-Create a file in your project called DemoExtension.php. By convention, this should go in a child 
+Create a file in your project called `DemoExtension.php`. By convention, this should go in a child
 namespace of your main project called `Extension` or `DependencyInjection`.
 
 >   **Note:** You'll need to let Composer know about your project source files. Do this by modifying your
@@ -46,7 +49,7 @@ The `load` method receives a `ContainerBuilder` which is used to register custom
 
 ### Register your extension with your Nice application
 
-Back in your front controller, called `appendExtension` or `prependExtension` on your `Nice\Application` instance.
+Back in your front controller, call `appendExtension` on your `Nice\Application` instance.
 
 ```php
 <?php
@@ -62,28 +65,90 @@ $app = new Application();
 $app->appendExtension(new DemoExtension());
 ```
 
+> **Tip:** The order of your extensions usually doesn't matter, but if you need to control the order, you can
+  use `prependExtension` to prioritize an extension over other extensions.
+
 
 Creating a new service definition
 ---------------------------------
 
-Inside your extension's `load` method, you can leverage the full power of a `ContainerBuilder`.
+For this example, assume you have an `Acme\Mailer` class. This class takes a single dependency in its constructor,
+an `Acme\Mailer\DriverInterface`.
+
+The `Mailer` class might look something like:
 
 ```php
 <?php
+
+namespace Acme;
+
+use Acme\Mailer\DriverInterface;
+
+class Mailer
+{
+    public function __construct(DriverInterface $driver)
+    {
+        // ...
+    }
+
+    // ...
+}
+```
+
+And an implementation of `DriverInterface` might be:
+
+```php
+<?php
+
+namespace Acme\Mailer;
+
+class SendmailDriver implements DriverInterface
+{
+    // ...
+}
+```
+
+Inside your extension's `load` method, you can leverage the full power of a `ContainerBuilder`, making the
+`Mailer`->`DriverInterface` relationship easy to define.
+
+```php
+<?php
+
+namespace Acme\Extension;
+
+use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Reference;
 
 class DemoExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
         // Register your custom classes
+        $container->register('acme.mailer.driver', 'Acme\Mailer\SendmailDriver')
+            ->setPublic(false);
+
         $container->register('acme.mailer', 'Acme\Mailer')
-            ->addArgument('sendmail');
+            ->addArgument(new Reference('acme.mailer.driver'));
     }
 }
 ```
 
-We defined a new service called `acme.mailer`. This service will be an instance of `Acme\Mailer` and will receive
-"sendmail" as the first argument to its constructor.
+We defined a service called `acme.mailer.driver`. Since this service is not intended to be used outside of this
+specific context, we've marked it as private by calling `setPublic(false)`.
+
+Then, we defined another service called `acme.mailer`. This service will be an instance of `Acme\Mailer`
+and will receive the configured `acme.mailer.driver` service as the first argument to its constructor.
+
+Now you can use your `acme.mailer` service like any other.
+
+```php
+# Back in web/index.php...
+// ...
+
+$mailer = $app->get('acme.mailer');
+
+// ...
+```
 
 >   **Info:** For a more complete reference, see the
     [DependencyInjection reference](http://symfony.com/doc/current/components/dependency_injection/definitions.html).
