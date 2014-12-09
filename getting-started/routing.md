@@ -67,3 +67,24 @@ $app->set('routes', function (RouteCollector $r) {
     }, [ 'GET', 'POST' ]);
 });
 ```
+
+
+Using classes as controllers
+----------------------------
+
+You may want to segregate actions into controller classes rather than having a mess of Closures in your
+front controller. By default, Nice allows the alternate syntax defining a class and action method:
+
+```php
+$app->set('routes', function (RouteCollector $r) {
+    $r->map('/user/{id}/edit', 'user_edit', 'UserController::editAction');
+    $r->map('/user/{id}/update', 'user_update', 'UserController::updateAction');
+});
+```
+
+
+### ContainerAware controllers
+
+As an additional step, you may want access to the service container inside your controllers. Implement the
+`Symfony\Component\DependencyInjection\ContainerAwareInterface` and when your controller is resolved and
+instantiated, the service container will be injected using the controller's `setContainer` method.

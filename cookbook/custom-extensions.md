@@ -108,8 +108,8 @@ class SendmailDriver implements DriverInterface
 }
 ```
 
-Inside your extension's `load` method, you can leverage the full power of a `ContainerBuilder`, making the
-`Mailer`->`DriverInterface` relationship easy to define.
+Inside your extension's `load` method, you can leverage the full power of a `ContainerBuilder` to define
+the relationship between our example classes.
 
 ```php
 <?php
