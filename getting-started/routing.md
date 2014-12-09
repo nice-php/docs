@@ -82,6 +82,10 @@ $app->set('routes', function (RouteCollector $r) {
 });
 ```
 
+> **Note:** The specified controller class is actually instantiated, and then the action called on that object.
+  If you want to use static action methods, you must use the array callable syntax:
+  `[ 'UserController', 'staticAction' ]`
+
 
 ### ContainerAware controllers
 
