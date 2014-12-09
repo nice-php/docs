@@ -31,6 +31,7 @@ class RouteCollector extends BaseCollector
         $this->map('/login', 'login', 'Acme\Controller\DefaultController::loginAction');
     }
 }
+```
 
 >   **Tip:** The above example
     [specifies class-based controllers](../getting-started/routing.md#using-classes-as-controllers)
