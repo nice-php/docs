@@ -30,7 +30,24 @@ running `composer require` at the command line.
     ```
 
 
-With the extension installed, register the Session and Security extensions with your Nice application.
+With the extension installed, you must hash your password. This can be done through the included `hashpass.php`
+utility.
+
+[View the full source code to `hashpass.php`](https://github.com/nice-php/security/blob/master/bin/hashpass.php)
+if you're curious about how it works.
+
+> **Note:** Hashing your password may seem superfluous, but it offers much greater security than leaving plaintext
+  passwords in source code or configuration files.
+
+This utility is automatically installed in your project's `vendor/bin` directory by Composer.
+
+Run it:
+
+```
+vendor/bin/hashpass
+```
+
+Finally, copy the generated password then register the Session and Security extensions with your Nice application.
 
 ```php
 $app = new Application();
@@ -40,7 +57,7 @@ $app->appendExtension(new SecurityExtension(array(
     'authenticator' => array(
         'type' => 'username',
         'username' => 'someuser',
-        'password' => 'a-really-strong-password'        
+        'password' => '$2y$10$vBwef.....' // Your hashed password
     )
 )));
 ```
