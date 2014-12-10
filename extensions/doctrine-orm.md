@@ -42,12 +42,37 @@ $app->appendExtension(new DoctrineOrmExtension(array(
         'path' => '%app.root_dir%/sqlite.db'
     ),
     'mapping' => array(
-        'paths' => '%app.root_dir%/src',
+        'default' => array(
+            'driver' => 'annotation',        // Or xml, yml, or php
+            'paths' => '%app.root_dir%/src', // Path to your entities or mapping files
+            'namespace' => 'Example'
+        ),
     ),
 )));
 ```
 
-Two new services will now be available:
+> **Note:** You will need to modify the `namespace` option in the above example to match your project.
+
+You can specify multiple mapping drivers. Ensure each has a unique name and namespace prefix.
+
+```php
+// ...
+    'mapping' => array(
+        'default' => array(
+            'driver' => 'annotation',
+            'paths' => '%app.root_dir%/src',
+            'namespace' => 'Example\\Entity'
+        ),
+        'secondary' => array(
+            'driver' => 'yml',
+            'paths' => '%app.root_dir%/mapping',
+            'namespace' => 'Awesome\\Entity'
+        ),
+    ),
+)));
+```
+
+Two services are made available by the extension:
 
 * `doctrine.orm.entity_manager` is the EntityManager. It is an instance of 
 [Doctrine\ORM\EntityManager](http://doctrine-orm.readthedocs.org/en/latest/reference/working-with-objects.html).
