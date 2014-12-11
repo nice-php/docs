@@ -82,3 +82,10 @@ The Nice Twig extension includes integration with Nice's router, exposing the fo
     ```
     
 *   `url` Generates an absolute URL. It takes a name and optionally, an array of parameters.
+
+*   `asset` Generates a URL to the given asset. It takes a relative path to the asset, from the webroot.
+
+    For example:
+    ```twig
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    ```
