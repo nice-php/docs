@@ -5,7 +5,7 @@ In more complex setups, it can be desirable to move the route definitions from `
 dedicated file. This is done in Nice by implementing a custom RouteCollector, and registering it with
 the dependency injection container.
 
-> **Note:** This guide builds on the [Custom Extensions](custom-extensions.md) walk-through.
+> **Note:** This guide builds on the [Compiler Passes](compiler-passes.md) walk-through.
 
 Getting started
 ---------------
@@ -43,41 +43,38 @@ Overriding the default collector
 
 A few boilerplate steps need to occur to complete our goal. We must override
 the default `router.collector` service with our new implementation. We'll do this by creating a
-custom dependency injection Extension.
+custom dependency injection CompilerPass.
 
 ```php
 <?php
 
-namespace Acme\Extension;
+namespace Acme\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class AcmeExtension extends Extension
+class OverrideRouteCollectorPass implements CompilerPassInterface
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function process(ContainerBuilder $container)
     {
-        // Register your custom classes
-        $container->register('router.collector', 'Acme\Router\RouteCollector')
-            ->addArgument(new Reference('router.parser'))
-            ->addArgument(new Reference('router.data_generator'));
+        $container->getDefinition('router.collector')
+            ->setClass('Acme\Router\RouteCollector');
     }
 }
 ```
 
-Finally, append your new extension in your front controller:
+Finally, add your new compiler pass in your front controller:
 
 ```php
 <?php
 
-use Symfony\Component\HttpFoundation\Response;
 use Nice\Application;
-use Acme\Extension\AcmeExtension;
+use Acme\DependencyInjection\Compiler\OverrideRouteCollectorPass;
 
-require __DIR__ . '/../vendor/autoload.php';
+// ...
 
 $app = new Application();
-$app->appendExtension(new AcmeExtension());
+$app->addCompilerPass(new OverrideRouteCollectorPass());
 
 $app->run();
 ```
