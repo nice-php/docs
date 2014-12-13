@@ -1,4 +1,5 @@
 - [Introduction](introduction.md)
+- [Contributing](contributing.md)
 - Getting Started
     - [Installation](getting-started/installation.md)
     - [Your First App](getting-started/your-first-app.md)
