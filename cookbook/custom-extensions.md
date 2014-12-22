@@ -194,7 +194,7 @@ class AcmeConfiguration implements ConfigurationInterface
 }
 ```
 
-> **Info:** See the (Symfony documentation)[http://symfony.com/doc/current/components/config/definition.html]
+> **Info:** See the [Symfony documentation](http://symfony.com/doc/current/components/config/definition.html)
   for additional information on using a `TreeBuilder`.
 
 
