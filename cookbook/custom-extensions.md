@@ -157,4 +157,73 @@ $mailer = $app->get('acme.mailer');
 Creating a Configuration Class
 ------------------------------
 
-Coming soon.
+Nice also makes use of the Symfony 2 Config component to expose configuration options. This can be used to
+configure your application using a variety of mechanisms: in PHP, YAML, or XML.
+
+### Getting started
+
+Start by creating a `Configuration` class. Nice's naming convention is `LogExtension` and `LogConfiguration`.
+
+```php
+<?php
+
+namespace Acme\Extension;
+
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
+
+class AcmeConfiguration implements ConfigurationInterface
+{
+    /**
+     * Generates the configuration tree builder.
+     *
+     * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder The tree builder
+     */
+    public function getConfigTreeBuilder()
+    {
+        $treeBuilder = new TreeBuilder();
+        $rootNode = $treeBuilder->root('acme');
+
+        $rootNode
+            ->children()
+                ->scalarNode('my_config')->end()
+            ->end();
+
+        return $treeBuilder;
+    }
+}
+```
+
+> **Info:** See the (Symfony documentation)[http://symfony.com/doc/current/components/config/definition.html]
+  for additional information on using a `TreeBuilder`.
+
+
+### Modifying your extension
+
+Next, you need to override the `getConfiguration` method in your Extension class.
+
+```php
+<?php
+
+namespace Acme\Extension;
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\Extension;
+
+class AcmeExtension extends Extension
+{
+    /**
+     * Returns extension configuration
+     *
+     * @param array            $config    An array of configuration values
+     * @param ContainerBuilder $container A ContainerBuilder instance
+     *
+     * @return AcmeConfiguration
+     */
+    public function getConfiguration(array $config, ContainerBuilder $container)
+    {
+        return new AcmeConfiguration();
+    }
+}
+```
+
