@@ -186,7 +186,7 @@ class AcmeConfiguration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('my_config')->end()
+                ->scalarNode('my_class')->end()
             ->end();
 
         return $treeBuilder;
@@ -213,6 +213,21 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 class AcmeExtension extends Extension
 {
     /**
+     * @var array
+     */
+    private $options = array();
+
+    /**
+     * Constructor
+     *
+     * @param array $options
+     */
+    public function __construct(array $options = array())
+    {
+        $this->options = $options;
+    }
+
+    /**
      * Returns extension configuration
      *
      * @param array            $config    An array of configuration values
@@ -224,6 +239,44 @@ class AcmeExtension extends Extension
     {
         return new AcmeConfiguration();
     }
+
+    /**
+     * Loads a specific configuration.
+     *
+     * @param array            $configs   An array of configuration values
+     * @param ContainerBuilder $container A ContainerBuilder instance
+     *
+     * @throws \InvalidArgumentException When provided tag is not defined in this extension
+     */
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $configs[] = $this->options;
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
+
+        // Use $config to access the normalized configuration
+        $container->register('acme.my_service', $config['my_class']);
+    }
 }
 ```
 
+In the above example, the Extension is modified to allow configuration via its constructor.
+
+In `web/index.php`, pass in the necessary configuration values:
+
+```php
+<?php
+
+use Nice\Application;
+use Acme\AcmeExtension;
+
+$app = new Application();
+$app->appendExtension(new AcmeExtension(array(
+    'my_class' => 'Acme\SomeServiceClass'
+)));
+```
+
+
+### Loading configuration from a file
+
+Coming soon.
