@@ -279,4 +279,40 @@ $app->appendExtension(new AcmeExtension(array(
 
 ### Loading configuration from a file
 
-Coming soon.
+Nice includes integration with the Symfony Config component, which allows simple loading of application
+configuration from various sources.
+
+#### Registering a ConfigurationProvider
+
+A ConfigurationProvider tells your application how and where to load its configuration. Included is a
+file-based provider, though you could use any means such as database backed, etcd, etc.
+
+Assuming the same setup as above, using the `AcmeExtension` and `AcmeConfiguration` classes, we simply
+need to create a configuration file, and register a `FileConfigurationProvider` with your `Application`.
+
+In your project's root directory, create `config.yml`. Add the contents:
+
+```yml
+acme:
+  my_class: Acme\SomeServiceClass
+```
+
+Next, in your front controller `web/index.php`, add:
+
+```php
+<?php
+
+use Nice\Application;
+use Nice\DependencyInjection\ConfigurationProvider\FileConfigurationProvider;
+use Acme\AcmeExtension;
+
+$app = new Application();
+$app->appendExtension(new AcmeExtension());
+$app->setConfigurationProvider(new FileConfigurationProvider($app->getRootDir().'/config.yml'));
+
+// ...
+
+$app->run();
+```
+
+Your application's extensions can now be configured via file!
