@@ -91,3 +91,34 @@ If using Apache, place the following in `web/.htaccess` file to enable pretty UR
     RewriteRule .? %{ENV:BASE}index.php [L]
 </IfModule>
 ```
+
+
+Configuring Nginx
+-----------------
+
+Use the following as a starting point for your Nginx configuration. Change `fastcgi_pass`
+to match your PHP-FPM configuration, and `root` to your document root.
+
+```
+server {
+    listen       80;
+    server_name  localhost;
+    root 	     /path/to/project/web;
+
+    location / {
+        try_files $uri @rewriteindex;
+    }
+
+    location @rewriteindex {
+        rewrite ^((?!\/index\.php).*)$ /index.php/$1 last;
+    }
+
+    location ~ \.php(/|$) {
+        fastcgi_pass   unix:/tmp/php55-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include        fastcgi_params;
+    }
+}
+```
+
