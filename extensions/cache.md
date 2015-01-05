@@ -30,8 +30,8 @@ The first step is requiring the Nice Doctrine Cache bridge in your project. You 
     ```json
     {
         "require": {
-            "nice/framework": "1.0.x-dev",
-            "nice/doctrine-cache": "1.0.x-dev"
+            "nice/framework": "~1.0",
+            "nice/doctrine-cache": "~1.0"
         }
     }
     ```
@@ -39,10 +39,10 @@ The first step is requiring the Nice Doctrine Cache bridge in your project. You 
     Then run `composer update` at the command line.
     
 
-*   Using the `composer` command line tool
+*   Using the `composer` command line tool, after installing Nice:
 
     ```
-    composer require nice/doctrine-cache:1.0.x-dev
+    composer require nice/doctrine-cache:~1.0
     ```
 
 With Doctrine Cache is installed, the next step is registering the `CacheExtension` with your Nice Application.

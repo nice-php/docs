@@ -12,8 +12,8 @@ running `composer require` at the command line.
     ```json
     {
         "require": {
-            "nice/framework": "1.0.x-dev",
-            "nice/twig": "1.0.x-dev"
+            "nice/framework": "~1.0",
+            "nice/twig": "~1.0"
         }
     }
     ```
@@ -21,10 +21,10 @@ running `composer require` at the command line.
     Then run `composer update` at the command line.
     
 
-*   Using the `composer` command line tool
+*   Using the `composer` command line tool, after Nice itself is installed:
 
     ```
-    composer require nice/twig:1.0.x-dev
+    composer require nice/twig:~1.0
     ```
 
 

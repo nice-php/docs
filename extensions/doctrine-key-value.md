@@ -15,7 +15,7 @@ running `composer require` at the command line.
     ```json
     {
         "require": {
-            "nice/framework": "1.0.x-dev",
+            "nice/framework": "~1.0",
             "nice/doctrine-key-value": "1.0.x-dev",
             "doctrine/key-value-store": "dev-master",
         }

@@ -13,7 +13,7 @@ running `composer require` at the command line.
     ```json
     {
         "require": {
-            "nice/framework": "1.0.x-dev",
+            "nice/framework": "~1.0",
             "monolog/monolog": "~1.11"
         }
     }

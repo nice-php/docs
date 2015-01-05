@@ -14,8 +14,8 @@ running `composer require` at the command line.
     ```json
     {
         "require": {
-            "nice/framework": "1.0.x-dev",
-            "nice/security": "1.0.x-dev"
+            "nice/framework": "~1.0",
+            "nice/security": "~1.0"
         }
     }
     ```
@@ -26,7 +26,7 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool
 
     ```
-    composer require nice/security:1.0.x-dev
+    composer require nice/security:~1.0
     ```
 
 

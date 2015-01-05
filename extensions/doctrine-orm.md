@@ -12,8 +12,8 @@ running `composer require` at the command line.
     ```json
     {
         "require": {
-            "nice/framework": "1.0.x-dev",
-            "nice/doctrine-orm": "1.0.x-dev"
+            "nice/framework": "~1.0",
+            "nice/doctrine-orm": "~1.0"
         }
     }
     ```
@@ -24,7 +24,7 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool
 
     ```
-    composer require nice/doctrine-orm:1.0.x-dev
+    composer require nice/doctrine-orm:~1.0
     ```
 
 Once Doctrine ORM and the Nice extension are installed, open your front controller (usually `web/index.php`) and 
