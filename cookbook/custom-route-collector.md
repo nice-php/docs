@@ -7,7 +7,7 @@ the dependency injection container.
 
 > **Note:** This guide builds on the [Compiler Passes](compiler-passes.md) walk-through.
 
--
+---------------
 
 > **Warning:** A RouteCollector that maps any Closures as handlers cannot, at present, be cached.
   Use [class-based controller](../getting-started/routing.md#using-classes-as-controllers) handlers to
