@@ -58,13 +58,18 @@ namespace Acme\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 
 class OverrideRouteCollectorPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
         $container->getDefinition('router.collector')
-            ->setClass('Acme\Router\RouteCollector');
+            ->setClass('Acme\Router\RouteCollector')
+            ->setArguments(array(
+                new Reference('router.parser'),
+                new Reference('router.data_generator')
+            ));
     }
 }
 ```
