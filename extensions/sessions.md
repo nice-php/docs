@@ -6,7 +6,10 @@ By default, session management is disabled. If you'd like to enable it, add the 
 ```php
 <?php
 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Nice\Application;
+use Nice\Router\RouteCollector;
 use Nice\Extension\SessionExtension;
 
 // ...
