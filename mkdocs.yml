@@ -4,7 +4,7 @@ repo_url: https://github.com/nice-php/framework
 pages:
   - ['introduction.md', 'Introduction']
   - ['contributing.md', 'Contributing']
-  - ['getting-started/installation.md', 'Installation']
+  - ['getting-started/installation.md', 'Getting Started', 'Installation']
   - ['getting-started/your-first-app.md', 'Getting Started', 'Your First App']
   - ['getting-started/routing.md', 'Getting Started', 'Routing']
   - ['getting-started/logging.md', 'Getting Started', 'Logging']
