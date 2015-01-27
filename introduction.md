@@ -1,5 +1,5 @@
-A nice PHP microframework
-=========================
+Nice, a PHP microframework
+==========================
 
 [![Build Status](http://img.shields.io/travis/nice-php/framework.svg?style=flat-square)](https://travis-ci.org/nice-php/framework)
 [![Coverage](http://img.shields.io/codeclimate/coverage/github/nice-php/framework.svg?style=flat-square)](https://codeclimate.com/github/nice-php/framework)
