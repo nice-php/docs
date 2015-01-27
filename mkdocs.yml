@@ -21,7 +21,7 @@ pages:
   - ['extensions/doctrine-orm.md', 'Doctrine', 'ORM']
   - ['extensions/doctrine-key-value.md', 'Doctrine', 'Key-Value Store']
   - ['extensions/doctrine-odm.md', 'Doctrine', 'ODM']
-  - ['cookbook/introduction.md', 'Cookbook']
+  - ['cookbook/introduction.md', 'Cookbook', 'Introduction']
   - ['cookbook/custom-extensions.md', 'Cookbook', 'Custom Extensions']
   - ['cookbook/compiler-passes.md', 'Cookbook', 'Compiler Passes']
   - ['cookbook/custom-route-collector.md', 'Cookbook', 'Custom Route Collector']

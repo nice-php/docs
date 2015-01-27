@@ -1,5 +1,5 @@
-Symfony 2 PHP Templates
-=======================
+Symfony 2 PHP Templating
+========================
 
 Nice builds its templating foundation on Symfony components, specifically the Templating component.
 
@@ -71,10 +71,10 @@ $app->run();
 > **Tip:** The default views directory is `%app.root_dir%/views`. You can change this by passing in the `template_dir`
   option to the TemplatingExtension constructor.
 
-Once the TemplatingExtension is registered with your Nice application, the following services will be available:
+Once the TemplatingExtension is registered with your Nice application, the following service will be available:
 
-* `templating` your main access point to any templating engine you use with Nice. Use this service to render templates,
-  regardless of the engine responsible. See [twig.md](Twig) or [plates.md](Plates PHP) integration for more details.
+* `templating` is your main access point to any templating engine you use with Nice. Use this service to render templates,
+  regardless of the engine responsible. See [Twig](twig.md) or [Plates PHP](plates.md) integration for more details.
 
 The parameter `php.template_dir` is also made available. Its value will be whatever was passed into
 the `template_dir` option in the constructor of your `TemplatingExtension` instance.
@@ -83,7 +83,7 @@ the `template_dir` option in the constructor of your `TemplatingExtension` insta
 Generating URLs
 ---------------
 
-The Nice Templating extension includes integration with Nice's router, exposing the following useful functions:
+The Nice Templating extension includes integration with Nice's router, exposing the following useful helpers:
 
 *   `$view['router']->getPath($name, $params)` Generates a URL. It takes a name and optionally, an array of parameters.
 

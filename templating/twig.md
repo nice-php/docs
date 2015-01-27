@@ -1,12 +1,11 @@
-Use with Twig
-=============
+Twig Templating
+===============
 
-Nice can easily support the [Twig](http://twig.sensiolabs.org) templating engine. All that's necessary is 
-the installation of the Nice Twig extension and some simple configuration.
+Adding support for the [Twig](http://twig.sensiolabs.org) templating engine is straightforward.
 
-First, add the Nice Twig extension to your project. The Twig extension depends on Nice Templating, so both extensions
-must be installed and loaded. You can accomplish this by updating your `composer.json` or running `composer require`
-at the command line.
+First, add the Nice Twig and Nice Templating extensions to your project. The Twig extension
+depends on Nice Templating, so both extensions must be installed and loaded. You can accomplish
+this by updating your `composer.json` or running `composer require` at the command line.
 
 *   Example `composer.json`:
 

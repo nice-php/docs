@@ -32,13 +32,13 @@ $app->run();
 
 ### Extensions available
 
-Nice is built around dependency injection extension used by the Symfony 2 DI container. Each extension
+Nice is built around dependency injection extensions used by the Symfony 2 DI container. Each extension
 provides new services for your application, with powerful configuration options.
 
 Nice comes with built-in support for [session management](extensions/sessions.md)
 and logging utilizing [Monolog](extensions/log.md).
 
-Additionally, there are many more extensions to help ease the prototyping process, including:
+There are many more extensions to help ease the prototyping process, including:
 
 * [Simple authentication](extensions/security.md)
 * [Twig integration](templating/twig.md)
