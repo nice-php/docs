@@ -1,2 +1,2 @@
-master_doc = 'toc'
-exclude_patterns = ['README.md']
+master_doc = 'introduction'
+exclude_patterns = ['README']
