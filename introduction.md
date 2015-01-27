@@ -32,17 +32,20 @@ $app->run();
 
 ### Extensions available
 
+Nice is built around dependency injection extension used by the Symfony 2 DI container. Each extension
+provides new services for your application, with powerful configuration options.
+
 Nice comes with built-in support for [session management](extensions/sessions.md)
 and logging utilizing [Monolog](extensions/log.md).
 
-Additionally, the follow extensions are available:
+Additionally, there are many more extensions to help ease the prototyping process, including:
 
 * [Simple authentication](extensions/security.md)
-* [Twig integration](extensions/twig.md)
+* [Twig integration](templating/twig.md)
+* [Plates PHP integration](templating/plates.md)
 * [Doctrine DBAL](extensions/doctrine-dbal.md)
 * [Doctrine ORM](extensions/doctrine-orm.md)
 * [Doctrine Cache](extensions/cache.md)
-* [Doctrine Key-Value Store](extensions/doctrine-key-value.md)
 
 
 

@@ -76,7 +76,7 @@ Configuring Apache mod_rewrite
 
 If using Apache, place the following in `web/.htaccess` file to enable pretty URLs without `index.php`:
 
-```
+```bash
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
@@ -99,7 +99,7 @@ Configuring Nginx
 Use the following as a starting point for your Nginx configuration. Change `fastcgi_pass`
 to match your PHP-FPM configuration, and `root` to your document root.
 
-```
+```bash
 server {
     listen       80;
     server_name  localhost;

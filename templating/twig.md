@@ -1,14 +1,12 @@
 Use with Twig
 =============
 
-> **Notice:** This page documents version 1.0 of the Twig extension. [See here](../templating/twig.md) for details
-  on version 2.0.
-
 Nice can easily support the [Twig](http://twig.sensiolabs.org) templating engine. All that's necessary is 
 the installation of the Nice Twig extension and some simple configuration.
 
-First, add the Nice Twig extension to your project. You can do this by updating your `composer.json` or
-running `composer require` at the command line.
+First, add the Nice Twig extension to your project. The Twig extension depends on Nice Templating, so both extensions
+must be installed and loaded. You can accomplish this by updating your `composer.json` or running `composer require`
+at the command line.
 
 *   Example `composer.json`:
 
@@ -16,7 +14,8 @@ running `composer require` at the command line.
     {
         "require": {
             "nice/framework": "~1.0",
-            "nice/twig": "~1.0"
+            "nice/templating": "1.0.x-dev",
+            "nice/twig": "2.0.x-dev"
         }
     }
     ```
@@ -27,11 +26,13 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool, after Nice itself is installed:
 
     ```
-    composer require nice/twig:~1.0
+    composer require nice/templating:1.0.x-dev nice/twig:2.0.x-dev
     ```
 
+> **Warning:** Version 2.0 of the extension is currently under development. Take care to note any BC breaks when updating.
 
-With the extension installed, all that's needed is some modifications to your front controller:
+
+With the extensions installed, modify your front controller:
 
 ```php
 <?php
@@ -40,19 +41,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Nice\Application;
 use Nice\Router\RouteCollector;
+use Nice\Extension\TemplatingExtension;
 use Nice\Extension\TwigExtension;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $app = new Application();
 
-// Register the Twig extension
-$app->appendExtension(new TwigExtension(__DIR__ . '/../views'));
+$app->appendExtension(new TemplatingExtension());
+$app->appendExtension(new TwigExtension());
 
 $app->set('routes', function (RouteCollector $r) {
     $r->map('/hello/{name}', null, function (Application $app, Request $request, $name) {
-        // Use the Twig service to render templates
-        $rendered = $app->get('twig')->render('index.html.twig', array(
+        // Use the Templating service to render templates
+        $rendered = $app->get('templating')->render('index.html.twig', array(
             'name' => $name
         ));
         
@@ -64,12 +66,15 @@ $app->set('routes', function (RouteCollector $r) {
 $app->run();
 ```
 
-Once the TwigExtension is registered with your Nice application, the following services will be available:
+Once the TemplatingExtension is registered with your Nice application, the following service will be available:
 
-* `twig` is an instance of `Twig_Environment`. Use this service to render templates.
+* `templating` is your entry point to any templating engine. Use this service to render templates.
 
-The parameter `twig.template_dir` is also made available. Its value will be whatever you've passed into the 
-constructor of your `TwigExtension` instance.
+  This service will automatically know to use Twig or another templating language depending on what file extension
+  the template has. Twig expects templates to end in `.twig`.
+
+The parameter `twig.template_dir` is also made available. Its value will be whatever was passed into
+the `template_dir` option in the constructor of your `TwigExtension` instance.
 
 
 Generating URLs

@@ -12,12 +12,18 @@
     - [Security](extensions/security.md)
     - [Cache](extensions/cache.md)
     - [Log](extensions/log.md)
-    - [Twig](extensions/twig.md)
+    - [Twig (deprecated)](extensions/twig.md)
+- Templating
+    - [Symfony 2](templating/php.md)
+    - [Twig](templating/twig.md)
+    - [Plates PHP](templating/plates.md)
+- Doctrine
     - [Doctrine DBAL](extensions/doctrine-dbal.md)
     - [Doctrine ORM](extensions/doctrine-orm.md)
     - [Doctrine ODM](extensions/doctrine-odm.md)
     - [Doctrine Key-Value](extensions/doctrine-key-value.md)
-- [Cookbook](cookbook/introduction.md)
+- Cookbook
+    - [Introduction](cookbook/introduction.md)
     - [Custom Extensions](cookbook/custom-extensions.md)
     - [Compiler Passes](cookbook/compiler-passes.md)
     - [Custom Route Collector](cookbook/custom-route-collector.md)
