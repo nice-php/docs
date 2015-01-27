@@ -14,7 +14,7 @@ caching data, each suited to a specific need.
     These files are generated at time of deployment and should not change during their lifetime. Examples of
     suitable applications here is cached routing and URL generator data.
     
-> Note: See the [advanced section](../advanced/config-cache.md) for more information on using `ConfigCache`.
+> Note: See the [advanced section](../cookbook/config-cache.md) for more information on using `ConfigCache`.
     
 
 ### Doctrine Cache
