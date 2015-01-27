@@ -3,3 +3,28 @@ site_url: http://niceframework.com
 repo_url: https://github.com/nice-php/framework
 pages:
   - ['introduction.md', 'Introduction']
+  - ['contributing.md', 'Contributing']
+  - ['getting-started/installation.md', 'Installation']
+  - ['getting-started/your-first-app.md', 'Getting Started', 'Your First App']
+  - ['getting-started/routing.md', 'Getting Started', 'Routing']
+  - ['getting-started/logging.md', 'Getting Started', 'Logging']
+  - ['getting-started/caching.md', 'Getting Started', 'Caching']
+  - ['getting-started/middlewares.md', 'Getting Started', 'Middlewares']
+
+  - ['extensions/sessions.md', 'Extensions', 'Sessions']
+  - ['extensions/security.md', 'Extensions', 'Security']
+  - ['extensions/cache.md', 'Extensions', 'Cache']
+  - ['extensions/log.md', 'Extensions', 'Log']
+
+  - ['extensions/twig.md', 'Templating', 'Twig']
+
+  - ['extensions/doctrine-dbal.md', 'Doctrine', 'DBAL']
+  - ['extensions/doctrine-orm.md', 'Doctrine', 'ORM']
+  - ['extensions/doctrine-key-value.md', 'Doctrine', 'Key-Value Store']
+  - ['extensions/doctrine-odm.md', 'Doctrine', 'ODM']
+
+  - ['cookbook/introduction.md', 'Cookbook']
+  - ['cookbook/custom-extensions.md', 'Cookbook', 'Custom Extensions']
+  - ['cookbook/compiler-passes.md', 'Cookbook', 'Compiler Passes']
+  - ['cookbook/custom-route-collector.md', 'Cookbook', 'Custom Route Collector']
+  - ['cookbook/config-cache.md', 'Cookbook', 'Using ConfigCache']
