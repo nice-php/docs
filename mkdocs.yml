@@ -1,2 +1,5 @@
+site_name: 'Nice PHP Framework'
+site_url: http://niceframework.com
+repo_url: https://github.com/nice-php/framework
 pages:
   - ['introduction.md', 'Introduction']
