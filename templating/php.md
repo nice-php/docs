@@ -48,10 +48,10 @@ require __DIR__ . '/../vendor/autoload.php';
 $app = new Application();
 
 // Register the Templating extension
-$app->appendExtension(new TemplatingExtension(
+$app->appendExtension(new TemplatingExtension(array(
     // We must explicitly turn on the Symfony 2 PHP templating engine
     'enable_php_engine' => true
-));
+)));
 
 $app->set('routes', function (RouteCollector $r) {
     $r->map('/hello/{name}', null, function (Application $app, Request $request, $name) {
