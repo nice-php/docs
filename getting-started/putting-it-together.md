@@ -2,7 +2,7 @@ Putting it all together
 =======================
 
 For quick and dirty prototypes, you can get away with anonymous functions and using `$app` as a service locator,
-however this method will quickly lead to a messy project.
+but this method can quickly lead to a messy project.
 
 There are a few key points to developing a maintainable Nice application.
 
@@ -14,9 +14,10 @@ There are a few key points to developing a maintainable Nice application.
 Best practices
 --------------
 
-Early on, it can be very beneficial to refactor your controller actions into distinct classes
-and register them as services. Implement a custom route collector to improve the readability
-and re-usability of your route mapping. Avoid relying on having the service container available
+Early on, using closures for your actions is fast and simple. However, it can be very
+beneficial to refactor your controller actions into distinct classes and register them as
+services. Implement a custom route collector to improve the readability and re-usability
+of your route mapping. Avoid relying on having the service container available
 to `get()` services; inject them properly instead.
 
 
