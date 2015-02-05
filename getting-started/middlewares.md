@@ -49,3 +49,10 @@ Custom Middlewares
 ------------------
 
 Check out the [Stack](http://stackphp.com/) website for more information on custom middlewares.
+
+
+Putting it all together
+-----------------------
+
+Now that we've seen how the basic parts of Nice work, we can put all the pieces together in a nice,
+maintainable application. Check out these [additional notes](putting-it-together.md) on building great apps.

@@ -17,7 +17,7 @@ running `composer require` at the command line.
     {
         "require": {
             "nice/framework": "~1.0",
-            "nice/templating": "1.0.x-dev",
+            "nice/templating": "~1.0",
             "nice/plates": "1.0.x-dev"
         }
     }
@@ -29,10 +29,10 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool, after Nice itself is installed:
 
     ```
-    composer require nice/templating:1.0.x-dev nice/plates:1.0.x-dev
+    composer require nice/templating:~1.0 nice/plates:1.0.x-dev
     ```
 
-> **Warning:** These extensions are currently under development. Take care to note any BC breaks when updating.
+> **Warning:** The Plates PHP extension is currently under development. Take care to note any BC breaks when updating.
 
 
 With the extensions installed, all that's needed is a little bit of wiring up. Back in your front controller, `index.php`:

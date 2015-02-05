@@ -3,7 +3,7 @@ Symfony 2 PHP Templating
 
 Nice builds its templating foundation on Symfony components, specifically the Templating component.
 
-Out of the box, the Nice templating extension supports the Symfony 2 PHP Templating language, with no
+Out of the box, the Nice Templating extension supports the Symfony 2 PHP Templating language, with no
 additional dependencies!
 
 First, add the Nice Templating extension to your project. You can do this by updating your `composer.json` or
@@ -15,7 +15,7 @@ running `composer require` at the command line.
     {
         "require": {
             "nice/framework": "~1.0",
-            "nice/templating": "1.0.x-dev"
+            "nice/templating": "~1.0"
         }
     }
     ```
@@ -26,11 +26,8 @@ running `composer require` at the command line.
 *   Using the `composer` command line tool, after Nice itself is installed:
 
     ```
-    composer require nice/templating:1.0.x-dev
+    composer require nice/templating:~1.0
     ```
-
-> **Warning:** The extension is currently under development. Take care to note any BC breaks when updating.
-
 
 With the extension installed, all that's needed is some modifications to your front controller:
 

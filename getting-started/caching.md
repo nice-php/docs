@@ -29,3 +29,10 @@ Additionally, the following parameters are available:
 
 > **Tip:** For further information on actually using the cache, see the 
 [Cache extension](../extensions/cache.md) documentation.
+
+
+And now?
+--------
+
+Knowing what's going on with your application is key. [Configure logging](logging.md) to get the details on what
+your application is up to.

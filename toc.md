@@ -7,6 +7,7 @@
     - [Caching](getting-started/caching.md)
     - [Logging](getting-started/logging.md)
     - [Middlewares](getting-started/middlewares.md)
+    - [Putting It Together](getting-started/putting-it-together.md)
 - Extensions
     - [Sessions](extensions/sessions.md)
     - [Security](extensions/security.md)

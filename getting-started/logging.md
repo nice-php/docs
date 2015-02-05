@@ -28,3 +28,10 @@ Additionally, the following parameters are available:
 
 > **Tip:** For further information on configuring logging, see the
 [Log extension](../extensions/log.md) documentation.
+
+
+Onward
+------
+
+A Nice application is really just a glorified HttpKernel. This means Nice is compatible with a
+[myriad of middlewares](middlewares.md) which simplify the various layers of your application.

@@ -122,3 +122,9 @@ server {
 }
 ```
 
+
+Next up
+-------
+
+Nice is extremely customizable. Check out [Routing](routing.md) for information on how to fully utilize Nice's routing
+features.

@@ -13,7 +13,7 @@ this by updating your `composer.json` or running `composer require` at the comma
     {
         "require": {
             "nice/framework": "~1.0",
-            "nice/templating": "1.0.x-dev",
+            "nice/templating": "~1.0",
             "nice/twig": "2.0.x-dev"
         }
     }
@@ -25,7 +25,7 @@ this by updating your `composer.json` or running `composer require` at the comma
 *   Using the `composer` command line tool, after Nice itself is installed:
 
     ```
-    composer require nice/templating:1.0.x-dev nice/twig:2.0.x-dev
+    composer require nice/templating:~1.0 nice/twig:2.0.x-dev
     ```
 
 > **Warning:** Version 2.0 of the extension is currently under development. Take care to note any BC breaks when updating.
